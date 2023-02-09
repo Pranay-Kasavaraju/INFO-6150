@@ -1,0 +1,100 @@
+
+label {
+    float: left;
+    width: 150px;
+}
+
+#container {
+    width: 700px;
+    margin: auto;
+    background-color: beige;
+}
+
+main {
+    padding: 50px;
+}
+
+#phone_error {
+    color: red;
+    size: 80%;
+}
+
+#email_error {
+    color: red;
+    size: 80%;
+}
+
+#city_error {
+    color: red;
+    size: 80%;
+}
+
+#state_error {
+    color: red;
+    size: 80%;
+}
+
+#zip_error {
+    color: red;
+    size: 80%;
+}
+
+#firstname_error {
+    color: red;
+    size: 80%;
+}
+
+#radioButton_error {
+    color: red;
+    size: 80%;
+}
+
+#lastname_error {
+    color: red;
+    size: 80%;
+}
+
+.hidden {
+    display: none;
+}
+
+.checkContainer {
+    float: left;
+    display: none;
+    padding-bottom: 5px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: none;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+tr:nth-child(odd) {
+    background-color: rgb(255, 222, 8);
+}
+
+.clr {
+      clear: left;
+}
+
+#checkDynamic {
+    display: none;
+    margin-top: 5px;
+}

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+ <head>
+	<link rel="stylesheet" href="style.css">
+  <title>Feedback</title>
+ </head>
+ <body>
+ <div id="container">
+	 
+	 <main>
+	 <h2>Feeback</h2>
+	 <h3>Love something? Hate something? Let us know!</h3>
+		 Note : Fields marked with an asterisk(*) are mandatory
+		 <br><br>
+		 <form name="myForm" method="post" id="myForm" validate>
+			<label>Title*:</label>
+			<input type="radio" name="title" id="miss" value="miss" required="required"/>Miss
+			<input type="radio" name="title" id="mr" value="mr" required="required"/>Mr.
+			<input type="radio" name="title" id="mrs" value="mrs" required="required"/>Mrs.
+			<br><br>
+			<label for="firstName">First Name*:</label>
+			<input type="text" name="firstName" id="firstName" placeholder="First Name" />	
+			<br>
+			<div id="firstname_error" style="display: none;">Please enter a valid First name</div>
+			<br>
+			
+
+			<label for="lastName">Last Name*:</label>
+			<input type="text" name="lastName" id="lastName" placeholder="Last Name" />
+			<br>
+			<div id="lastname_error" style="display: none;">Please enter a valid Last Name</div>
+			<br>
+			
+
+			<label for="emailId">Email Id*:</label>
+			<input type="text" name="emailId" id="emailId" placeholder="yourname@domain.com" />
+			<br>
+			<div id="email_error" style="display: none;">Please enter a valid email</div>
+			<br>
+			
+
+			<label for="phoneNumber">Phone Number*:</label>
+			<input type="text" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" />
+			<br>
+			<div id="phone_error" style="display: none;">Please enter a valid phone number</div>
+			<br>
+
+			<label for="streetAddress1">Street Address 1*:</label>
+			<input type="text" name="streetAddress1" id="streetAddress1" placeholder="address"  required="required"/>
+			<br>
+			<br>
+
+			<label for="streetAddress2">Street Address 2:</label>
+			<input type="text" name="streetAddress2" id="streetAddress2" placeholder="address" />
+			<br><br>
+
+			<label for="city">City*:</label>
+			<input type="text" name="city" id="city" placeholder="city" required="required"/>
+			<div id="city_error" style="display: none;">Please enter a valid City Name</div>
+			<br><br>
+			<br><br>
+
+			<label for="state">State*:</label>
+			<input type="text" name="state" id="state" placeholder="state" required="required"/>
+			<div id="state_error" style="display: none;">Please enter a valid State Name</div>
+			<br><br>
+			<br><br>
+			
+            <label for="zipcode">ZipCode*:</label>
+			<input type="text" name="zipcode" id="zipcode" placeholder="xxxxxx" />
+			<div id="zip_error" style="display: none;">Please enter a valid Zip Code</div>
+			<br><br>
+             
+            <label for="source">How did you hear*:</label>
+			<input type='checkbox' class="source" value="facebook" /> Facebook
+            <input type='checkbox' class="source" value="google" /> Google
+            <input type='checkbox' class="source" value="yelp" /> Yelp 
+			<br><br> 
+
+			<label for="drinks">Choose a Drink:</label>
+			<select name="drink" id="drink">
+				<option value="none" selected disabled hidden>Select an Option</option>
+				<option value="milk">Milk</option>
+				<option value="coffee">Coffee</option>
+				<option value="hot chocolate">Hot Chocolate</option>
+				<option value="tea">Tea</option>
+				<option value="green tea">Green Tea</option>
+			</select>
+			<br><br>
+			<div id="wrapCheckContainer">
+				<div class="checkContainer">
+					<input type="checkbox" class="drinkSize" id="drinkCheckSmall" name="drinkCheckBox"
+						onchange="ValidateTextField(this)">
+					<label for=" drinkSize" id="drinkCheckTextSmall"></label>
+				</div>
+				<div class="checkContainer">
+					<input type="checkbox" class="drinkSize" id="drinkCheckMed" name="drinkCheckBox"
+						onchange="ValidateTextField(this)">
+					<label for=" drinkSize" id="drinkCheckTextMed"></label>
+				</div>
+				<div class="checkContainer">
+					<input type="checkbox" class="drinkSize" id="drinkCheckLarge" name="drinkCheckBox"
+						onchange="ValidateTextField(this)">
+					<label for="drinkSize" id="drinkCheckTextLarge"></label>
+				</div>
+			</div>
+
+			<div class="clr"></div>
+			<div id="radioButton_error" style="display: none;">Please select one of the options</div>
+			<br>
+
+			<div id="checkTextFieldDynamic">
+				<input type="text" name="checkDynamic" id="checkDynamic" placeholder="Additions to Order"
+					novalidate />
+			</div>
+             
+			<label for="comments">Comments*:</label>
+			<textarea name="text" id="comments" placeholder="Your comments" rows="5" cols="25"></textarea>
+			<br><br>
+			<input type="Submit" value="Submit">
+			<input type="Reset">
+			<br><br>
+		 </form>
+	 </main>
+ </div>
+
+ <table id="tableCheckout">
+
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+			<th>Phone Number</th>
+			<th>Address 1</th>
+			<th>Address 2</th>
+			<th>Zip</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Sources</th>
+			<th>Drink</th>
+			<th>Comments</th>
+		</tr>
+	</table>
+
+ </body>
+ 
+ <script src="script.js"></script>
+
+</html>
