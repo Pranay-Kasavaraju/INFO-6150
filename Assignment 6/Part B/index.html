@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" 
+    crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="watch">
+        <div class="time" id="time">
+            <label readonly value="HH:MM:SS">00<span>HR</span>00<span>MIN</span>00<span>SEC</span></label>
+        </div>
+        <div class="controls">
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(async function(){
+
+            let seconds = 0
+            let interval = null
+
+            $("#start").click(() => {
+                if(interval){
+                    return
+                }
+                interval = setInterval(() => {
+                    seconds++;
+
+                    let hrs = Math.floor(seconds / 3600)
+                    let mins = Math.floor((seconds - hrs * 3600) / 60)
+                    let secs = seconds % 60;
+
+                    if (secs < 10){
+                        secs = '0' + secs
+                    }
+                    if (mins < 10){
+                        mins = '0' + mins
+                    }
+                    if (hrs < 10){
+                        hrs = '0' + hrs
+                    }
+
+                    $("#time").html(`${hrs}<span>HR</span>${mins}<span>MIN</span>${secs}<span>SEC</span>`)
+                }, 1000)   
+            })
+
+            $("#stop").click(() => {
+                clearInterval(interval)
+                interval = null
+            })
+
+            $("#reset").click(() => {
+                stop()
+                seconds = 0
+                $("#time").html('<label readonly value="HH:MM:SS">00<span>HR</span>00<span>MIN</span>00<span>SEC</span></label>')
+            })
+        })
+
+ 
+    </script>
+
+    
+</body>
+</html>

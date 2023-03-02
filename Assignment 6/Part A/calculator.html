@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserInfo</title>
+
+    <link rel="stylesheet" type="text/css" href="secstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" 
+    crossorigin="anonymous"></script>
+
+
+    <script>
+        $(document).ready(function(){
+            const name = localStorage.getItem("USERNAME");
+
+            $("#userinfo").html("Welcome - " + name + "!");
+
+            /[^0-9]/g
+
+            var firstNumber = $("#number1").val();
+            var secondNumber = $("#number2").val();
+            var thirdNumber = $("#number3").val();
+
+            $("#number1").keyup(function(){
+                if(validateNumber1()){
+                    $("#number1").css("border","4px solid green");
+                }else{
+                    $("#number1").css("border","4px solid red");
+                }
+
+            });
+
+            function validateNumber1(){
+                var firstNumber = $("#number1").val();
+                var numReg = /^[0-9]+$/;
+
+                if(numReg.test(firstNumber)){
+                    $("#numMsg1").html("");
+                    return true;
+                }else if(firstNumber.length == ""){
+                    $("#numMsg1").html("<p>Please Enter Number</p>");
+                    return false;
+                }else{
+                    $("#numMsg1").html("<p>Field only accepts Number</p>");
+                    return false;
+                }
+            }
+
+            $("#number2").keyup(function(){
+                if(validateNumber2()){
+                    $("#number2").css("border","4px solid green");
+                }else{
+                    $("#number2").css("border","4px solid red");
+                
+                }
+
+            });
+
+            function validateNumber2(){
+                var secondNumber = $("#number2").val();
+                var numReg = /^[0-9]+$/;
+
+                if(numReg.test(secondNumber)){
+                    $("#numMsg2").html("");
+                    return true;
+                }else if(secondNumber.length == ""){
+                    $("#numMsg2").html("<p>Please Enter Number</p>");
+                    return false;
+                }else{
+                    $("#numMsg2").html("<p>Field only accepts Number</p>");
+                    return false;
+                }
+            }
+
+            const calculate ={
+                result: 0,
+                add: (a,b,c) => {
+                    this.result = a+b;
+                    return this;
+                },
+                sub: (a,b,c) => {
+                    this.result = a-b;
+                    return this;
+                },
+                multiply: (a,b,c) => {
+                    this.result = a*b;
+                    return this;
+                },
+                divide: (a,b,c) => {
+                    this.result = a /b;
+                    return this;
+                }
+
+            }
+
+            $("#add").click(function(){
+                let res = calculate.add(parseInt($("#number1").val()), parseInt($("#number2").val())).result
+                $('#output').val(res);
+            });
+
+            $("#subtract").click(function(){
+                let res = calculate.sub($("#number1").val(), $("#number2").val()).result
+                $('#output').val(res);
+            });
+
+            $("#multiply").click(function(){
+                let res = calculate.multiply($("#number1").val(), $("#number2").val()).result
+                $('#output').val(res);
+            });
+
+            $("#divide").click(function(){
+                let res = calculate.divide($("#number1").val(), $("#number2").val()).result
+                $('#output').val(res);
+            });
+
+            
+        });
+    </script>
+
+
+</head>
+<body>
+    <div id="userinfo">
+
+    </div>
+    <div class="container">
+        <h3>Enter Numbers</h3>
+        <div class="numbers">
+            <input type="text" class="number" id="number1" placeholder="Enter Number 1"/>
+            <span id="numMsg1" style="color: red;"></span>
+            <input type="text" class="number" id="number2" placeholder="Enter Number 2"/>
+            <span id="numMsg2" style="color: red;"></span>
+        </div>
+        <div class="operations">
+            <button id="add">Add</button>
+            <button id="subtract">Stubtract</button>
+            <button id="multiply">Multiply</button>
+            <button id="divide">Divide</button>
+        </div>
+    </div>
+    <div class="output">
+        <h2>Result:</h2>
+        <input type="text" id="output" disabled>
+    </div>
+</body>
+</html>
