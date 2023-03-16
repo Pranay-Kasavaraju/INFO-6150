@@ -1,0 +1,24 @@
+$b: "border";
+
+%btn {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 20px;
+    padding: .25em 1em;
+    #{$b}-radius: 30px;
+    font-family: var(--ff-ss);
+    color: var(--white);
+    background: var(--dark);
+    #{$b}: solid 3px var(--button);
+
+    &:hover{ 
+        background: var(--button);
+        color: var(--dark);
+    }
+}
+
+.button{
+    @extend %btn;   
+}

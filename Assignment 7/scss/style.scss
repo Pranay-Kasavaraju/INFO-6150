@@ -1,0 +1,134 @@
+@import 'buttons', 'functions';
+
+$smaller: 8px;
+$small: 1rem;
+$family: 'Merriweather', serif;
+$b: "border";
+$primary: #111;
+$white: #FFFBFA;
+$button: #cfa144;
+
+@mixin fonts {
+    font: {
+        size: double($small);
+        weight: 500;
+        family: $family;
+    };   
+}
+:root{
+    --dark: #{$primary};
+    --light: #88D7D2;
+    --white: #{$white};
+    --button: #{$button};
+    --ff-ss: 'Merriweather Sans', sans-serif;
+    --ff-f: $family;
+    --fc: var(--dark);
+
+    --sec-pad: 150px 0;
+
+    --mw: 100%;
+}
+*{
+    box-sizing: #{$b}-box;
+    margin: 0;
+}
+
+body{
+    font-family: var(--ff-s);
+    color: var(--fc);
+    font-size: .9rem;
+    line-height: 1.6;
+    height: 100vh;    
+}
+
+.intro{
+    background: var(--dark);
+    color: var(--white);
+    padding: var(--sec-pad);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills{
+    background: var(--dark);
+    padding: var(--sec-pad);
+    color: rgba(0,0,0,0.7);
+    height: 100vh;
+   
+}
+
+.skills h1{
+    font-size: 3rem;
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 50px;
+}
+.skills h2{
+    font-size: 30px;
+    
+}
+
+.col >hr{
+    width: 50%;
+    position: relative;
+    left: 25%;
+    #{$b}: solid 1px var(--dark);
+}
+
+.col > h2{
+    margin-top: 30px;
+}
+
+
+
+.about{
+    padding: var(--sec-pad);
+}
+
+h1{
+    margin-bottom: 1em;
+}
+
+.content h3{
+    margin-top: 1em;
+    @include fonts;
+}
+
+h1,h2{
+    margin: 0;
+    line-height: 1;
+    text-transform: uppercase;
+    font-family: var(--ff-ss);
+}
+
+.columns{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+}
+
+.col{
+    text-align: center;
+    background: var(--button);
+    gap: 1em;
+    height: 200px;
+    overflow: auto;
+}
+
+.image img{
+    width: var(--mw);
+    #{$b}-radius: 20px;
+    position: relative;
+    right: 10px;
+}
+
+.content{
+    width: 500%;
+    padding: 50px;
+}
+
+p{
+    font-size: double($smaller);
+}
