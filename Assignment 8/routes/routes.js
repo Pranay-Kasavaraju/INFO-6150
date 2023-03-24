@@ -53,6 +53,8 @@ route.post('/user/create', async (req,res) => {
 // update user
 route.put('/user/edit/:email', async (req,res) => {
     const {fullName , password } = req.body
+
+    try{
     if(!fullName || !password){
         res.send({error: "All fields are mandatory" })
     }
@@ -81,6 +83,9 @@ route.put('/user/edit/:email', async (req,res) => {
 
         }
     });
+}catch(err){
+
+}
 
 });
 
